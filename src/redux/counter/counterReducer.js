@@ -1,19 +1,19 @@
 import { DECREMENT, INCREMENET } from "./actionTypes";
 
 const initialState = {
-    value: 0
+    value: 23
 }
 const counterReducer = (state = initialState, action) => {
     switch (action.type) {
         case INCREMENET:
             return {
                 ...state,
-                value: state.value + 1
+                value: state.value + action.payload
             }
         case DECREMENT:
             return {
                 ...state,
-                value: state.value - 1
+                value: state.value - action.payload
             }
         default:
             return state
