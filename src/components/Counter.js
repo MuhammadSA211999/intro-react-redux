@@ -1,15 +1,8 @@
-import { useState } from "react";
+import { connect } from "react-redux";
+import { decrement, increment } from "../redux/counter/actions";
 
-export default function Counter() {
-    const [count, setCount] = useState(0);
 
-    const increment = () => {
-        setCount((prevCount) => prevCount + 1);
-    };
-
-    const decrement = () => {
-        setCount((prevCount) => prevCount - 1);
-    };
+function Counter({ count, increment, decrement }) {
 
     return (
         <div className="p-4 h-auto flex flex-col items-center justify-center space-y-5 bg-white rounded shadow">
@@ -31,3 +24,18 @@ export default function Counter() {
         </div>
     );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        count: state.value
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        // dispatch er moddhye increment/decrement call kore dile amra action pai, karon in/dec action object return kore
+        increment: () => dispatch(increment()),
+        decrement: () => dispatch(decrement())
+    }
+}
+// connect fun call korle HOC return kore, HOC parameter hisabe Counter(comp) ney. connect func param hisabe mapStateToProps,mapDispatchToProps ke ney
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)
