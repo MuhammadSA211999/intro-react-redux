@@ -16,7 +16,7 @@ export default function App() {
                     <HooksCounter />
                     <DynamicHooksCounter />
                     <VariableCounter />
-                    <VariableCounter dynamic />
+                    <VariableCounter dynamic={true} />
 
                 </div>
             </div>

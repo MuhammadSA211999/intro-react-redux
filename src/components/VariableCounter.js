@@ -32,8 +32,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         // dispatch er moddhye increment/decrement call kore dile amra action pai, karon in/dec action object return kore
-        increment: ownProps.dynamic ? (value) => dispatch(dynamicInecremnet(value)) : () => dispatch(increment()),
-        decrement: ownProps.dynamic ? (value) => dispatch(dynamicDecremnet(value)) : () => dispatch(decrement())
+        increment: ownProps.dynamic ? (value) => dispatch(dynamicInecremnet(5)) : () => dispatch(increment()),
+        decrement: ownProps.dynamic ? (value) => dispatch(dynamicDecremnet(2)) : () => dispatch(decrement())
     }
 }
 // connect fun call korle HOC return kore, HOC parameter hisabe Counter(comp) ney. connect func param hisabe mapStateToProps,mapDispatchToProps ke ney
